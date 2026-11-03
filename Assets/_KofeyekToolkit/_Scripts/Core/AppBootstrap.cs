@@ -8,6 +8,7 @@ using KofeyekToolkit.DI.Core;
 using KofeyekToolkit.Events;
 using KofeyekToolkit.Logging;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace KofeyekToolkit.Core
 {
@@ -55,6 +56,8 @@ namespace KofeyekToolkit.Core
             spawnService.SpawnInSceneObjects();
             
             tickService.EnableTicking(true);
+            var nextScene = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1));
+            sceneSwitcher.LoadScene(nextScene, null);
         }
     }
 }
